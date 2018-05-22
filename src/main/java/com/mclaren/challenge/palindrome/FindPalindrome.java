@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import com.mclaren.challenge.palindrome.exception.PalindromeNotFoundException;
 import com.mclaren.challenge.palindrome.model.PalindromeResult;
 
@@ -23,7 +26,13 @@ public class FindPalindrome {
 	 */
 	public static final int NUMBER_OF_PALINDROMES = 3;
 
+	static final Logger logger = Logger.getLogger(FindPalindrome.class);
+
 	public static void main(String[] args) throws PalindromeNotFoundException {
+
+		PropertyConfigurator.configure("log4j.properties");
+
+		logger.debug("Starting main method");
 		try {
 
 			if (args.length != 1)
