@@ -1,0 +1,3 @@
+Text: a, Index: 0, Length: 1
+Text: b, Index: 1, Length: 1
+Text: c, Index: 2, Length: 1

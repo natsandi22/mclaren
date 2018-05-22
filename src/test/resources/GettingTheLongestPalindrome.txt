@@ -1,0 +1,3 @@
+Text: pqrstuvwwvutsrqp, Index: 21, Length: 16
+Text: jklmnnmlkj, Index: 10, Length: 10
+Text: deffed, Index: 4, Length: 6
