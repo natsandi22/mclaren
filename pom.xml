@@ -37,10 +37,10 @@
 	<build>
    	    <resources>
 	        <resource>
-	            <directory>src/main/java</directory>
+	            <directory>src/main/resources</directory>
 	        </resource>
 	        <resource>
-	            <directory>src/main/resources</directory>
+	            <directory>src/test/resources</directory>
 	        </resource>
 	    </resources>
 	    <plugins>
@@ -53,6 +53,21 @@
 	          <target>1.8</target>
 	        </configuration>
 	      </plugin>
+	      <plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>exec-maven-plugin</artifactId>
+			  <version>1.2.1</version>
+			  <executions>
+			    <execution>
+			      <goals>
+			        <goal>java</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			  <configuration>
+			    <mainClass>com.mclaren.challenge.palindrome.FindPalindrome</mainClass>
+			  </configuration>
+			</plugin>
 	    </plugins>
 	</build>
 </project>

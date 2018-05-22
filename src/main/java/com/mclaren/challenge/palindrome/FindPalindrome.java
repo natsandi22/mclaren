@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import com.mclaren.challenge.palindrome.exception.PalindromeNotFoundException;
 import com.mclaren.challenge.palindrome.model.PalindromeResult;
@@ -30,24 +29,29 @@ public class FindPalindrome {
 
 	public static void main(String[] args) throws PalindromeNotFoundException {
 
-		PropertyConfigurator.configure("log4j.properties");
-
-		logger.debug("Starting main method");
+		logger.info("Starting main method");
 		try {
 
 			if (args.length != 1)
 				throw new IllegalArgumentException("One string argument is expected.");
 
 			String text = args[0];
+			logger.info("Received args[0]: " + text);
+
 			Set<PalindromeResult> palindromeSet = new HashSet<PalindromeResult>();
 			int length = text.length();
 			int index = 0;
 
 			PalindromeResult result = null;
 			while (palindromeSet.size() < NUMBER_OF_PALINDROMES) {
+				logger.info("Looking for the [" + palindromeSet.size() + "] palindrome.");
 				result = PalindromeResult.getMaxLengthPalindrome(text, length, index);
 				if (result.isUniquePalindrome() && !result.isSubPalindrome(palindromeSet)) {
 					palindromeSet.add(result);
+					logger.info("--- " + result.getPalindrome() + " ---");
+				} else {
+					logger.debug(
+							"Not valid " + result.getPalindrome() + " because it is a duplicate or a sub-palindrome.");
 				}
 				length = result.getLength();
 				index = result.getIndex() + 1;
@@ -57,9 +61,11 @@ public class FindPalindrome {
 					.thenComparing(PalindromeResult::getPalindrome)).forEach(System.out::println);
 
 		} catch (PalindromeNotFoundException e) {
+			logger.error(e);
 			throw e;
 		}
 
+		logger.info("Ending main method");
 	}
 
 }
