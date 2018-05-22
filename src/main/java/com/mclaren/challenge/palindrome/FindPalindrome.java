@@ -30,12 +30,13 @@ public class FindPalindrome {
 	public static void main(String[] args) throws PalindromeNotFoundException {
 
 		logger.info("Starting main method");
+		String text = "";
 		try {
 
 			if (args.length != 1)
 				throw new IllegalArgumentException("One string argument is expected.");
 
-			String text = args[0];
+			text = args[0];
 			logger.info("Received args[0]: " + text);
 
 			Set<PalindromeResult> palindromeSet = new HashSet<PalindromeResult>();
@@ -61,7 +62,8 @@ public class FindPalindrome {
 					.thenComparing(PalindromeResult::getPalindrome)).forEach(System.out::println);
 
 		} catch (PalindromeNotFoundException e) {
-			logger.error(e);
+			logger.error("Error trying to find " + NUMBER_OF_PALINDROMES + " palindromes in [" + text
+					+ "] with a minimun length of " + PalindromeResult.MIN_LENGTH + " characters. ", e);
 			throw e;
 		}
 
