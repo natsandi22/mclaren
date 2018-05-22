@@ -1,0 +1,3 @@
+Text: hijkllkjih, Index: 23, Length: 10
+Text: defggfed, Index: 13, Length: 8
+Text: abccba, Index: 5, Length: 6
