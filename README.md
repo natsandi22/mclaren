@@ -26,7 +26,8 @@ Open a command prompt and go to the root directory in which pom.xml is available
 Type "mvn --version" to ensure that Maven 3 is propertly installed in the system.
 ```
 ```
-Execute this command replacing the content of "first_arg" with the string: mvn exec:java -Dexec.args="first_arg"
+Execute this command replacing the content of "first_arg" with the string that will be tested:
+mvn exec:java -Dexec.args="first_arg"
 ```
 
 ## Running the tests
@@ -37,3 +38,7 @@ For more detailed information a log file called palindrome.log is created in the
 ```
 Test run: 7, Failures: 0, Errors: 0, Skipped: 0
 ```
+
+## Assumptions
+
+It has been assumed that the min lenght of a palindrome is 1. To be able to change this behaviour a constant "MIN_LENGTH" has been introduced in the class  com.mclaren.challenge.palindrome.model.PalindromeResult.
